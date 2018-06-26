@@ -1,0 +1,42 @@
+﻿@using OktaAPIShared.Models
+@model SMSViewModel
+@{
+    ViewBag.Title = "SMS Verification";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@ViewBag.Title</h2>
+            <p class="lead">SMS Code sent!</p>
+        </div>
+        <div class="col-md-12">
+            <section id="Form">
+                @using (Html.BeginForm("SMSVerify", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.HiddenFor(m => m.ApiUrl)
+                        @Html.HiddenFor(m => m.UserId)
+                        @Html.HiddenFor(m => m.CountryCode)
+                        @Html.HiddenFor(m => m.PhoneNumber)
+                        <input type="submit" id="btnReSendCode" value="Re-send Code" class="btn btn-default" disabled /><!--TODO: Not set up-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.PassCode, new { @class = "form-control", @placeholder = "Enter Code" })
+                        @Html.ValidationMessageFor(m => m.PassCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="submit" value="Verify" class="btn btn-info" />
+                    </div>
+                </div>
+                }
+            </section>
+        </div>
+    </div>
+</div>

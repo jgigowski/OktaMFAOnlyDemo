@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Logins>
+  <Login>
+    <UserName>username1@mailinator.com</UserName>
+    <Password>Password1</Password>
+  </Login>
+  <Login>
+    <UserName>username2@mailinator.com</UserName>
+    <Password>Password2</Password>
+  </Login>
+  <Login>
+    <UserName>username3@mailinator.com</UserName>
+    <Password>Password3</Password>
+  </Login>
+  <Login>
+    <UserName>username4@mailinator.com</UserName>
+    <Password>Password4</Password>
+  </Login>
+  <Login>
+    <UserName>username5@mailinator.com</UserName>
+    <Password>Password5</Password>
+  </Login>
+</Logins>

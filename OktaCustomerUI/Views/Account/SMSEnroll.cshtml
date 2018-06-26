@@ -1,0 +1,45 @@
+﻿@using OktaAPIShared.Models
+@model SMSViewModel
+@{
+    ViewBag.Title = "SMS Enroll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@ViewBag.Title</h2>
+            <p class="lead">Receive a code via SMS to Authenticate</p>
+        </div>
+        <div class="col-md-12">
+            <section id="Form">
+                @using (Html.BeginForm("SMSEnroll", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <div>
+                        <div class="row">
+                            @Html.HiddenFor(m => m.UserId)
+                            @Html.LabelFor(m => m.CountryCode, new { @class = "col-md-3 control-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.CountryCode, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CountryCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-3 control-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-9">
+                            <input type="submit" value="Send Code" class="btn btn-default" />
+                        </div>
+                    </div>
+                }
+            </section>
+        </div>
+    </div>
+</div>
